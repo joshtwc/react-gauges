@@ -1,0 +1,32 @@
+/*
+ * @joshtwc/react-gauges – Tailwind CSS v4 utilities.
+ *
+ *   @import "tailwindcss";
+ *   @import "@joshtwc/react-gauges/tailwind.css";
+ *
+ * Then theme any gauge from your Tailwind palette, including variants:
+ *   <Dial className="text-slate-700 dark:text-slate-200 gauge-accent-sky-500 gauge-track-slate-200 dark:gauge-track-slate-800" … />
+ *
+ * Each utility sets one --rg-* variable; arbitrary values work too: gauge-accent-[#2b3e59].
+ */
+@utility gauge-accent-* { --rg-accent: --value(--color-*, [color]); }
+@utility gauge-text-* { --rg-text: --value(--color-*, [color]); }
+@utility gauge-muted-* { --rg-muted: --value(--color-*, [color]); }
+@utility gauge-track-* { --rg-track: --value(--color-*, [color]); }
+@utility gauge-tick-* { --rg-tick: --value(--color-*, [color]); }
+@utility gauge-face-* { --rg-face: --value(--color-*, [color]); }
+@utility gauge-border-* { --rg-face-border: --value(--color-*, [color]); }
+@utility gauge-needle-* { --rg-needle: --value(--color-*, [color]); }
+@utility gauge-hub-* { --rg-hub: --value(--color-*, [color]); }
+@utility gauge-marker-* { --rg-marker: --value(--color-*, [color]); }
+@utility gauge-good-* { --rg-good: --value(--color-*, [color]); }
+@utility gauge-warn-* { --rg-warn: --value(--color-*, [color]); }
+@utility gauge-bad-* { --rg-bad: --value(--color-*, [color]); }
+@utility gauge-info-* { --rg-info: --value(--color-*, [color]); }
+@utility gauge-cold-* { --rg-cold: --value(--color-*, [color]); }
+@utility gauge-on-accent-* { --rg-on-accent: --value(--color-*, [color]); }
+@utility gauge-sky-* { --rg-sky: --value(--color-*, [color]); }
+@utility gauge-ground-* { --rg-ground: --value(--color-*, [color]); }
+@utility gauge-liquid-* { --rg-liquid: --value(--color-*, [color]); }
+@utility gauge-font-* { --rg-font: --value(--font-*, [*]); }
+@utility gauge-value-font-* { --rg-value-font: --value(--font-*, [*]); }

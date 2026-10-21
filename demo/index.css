@@ -1,0 +1,114 @@
+@import "tailwindcss";
+@import "../src/tailwind.css";
+
+/* Layout: a florist's catalogue – one calm column of specimen cards, two-up on wide screens. */
+:root {
+  /* The Watering Can brand tokens */
+  --twc-indigo: #2b3e59;
+  --twc-camel: #b1955d;
+  --twc-bg: #faf7f2;
+  --twc-ink: #1a2535;
+  --twc-white: #ffffff;
+  --twc-radius: 6px;
+  --twc-font-display: "Lora", Georgia, serif;
+  --twc-font-body: "Inter", sans-serif;
+
+  /* Page tokens (light) */
+  --page: #faf7f2;
+  --surface: #ffffff;
+  --well: #f4f0e8;
+  --ink: #1a2535;
+  --heading: #2b3e59;
+  --camel: #b1955d;
+  --line: #e6e8ed;
+  --line-strong: #c9cdd5;
+  --soft: #545d6e;
+  --btn-bg: #2b3e59;
+  --btn-fg: #ffffff;
+  --code-bg: #2b3e59;
+  --code-fg: #faf7f2;
+  --focus: #2b3e59;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #111925;
+    --surface: #1a2535;
+    --well: #152031;
+    --ink: #eef0f3;
+    --heading: #f3eee4;
+    --camel: #c3a874;
+    --line: #2a374b;
+    --line-strong: #3b4b63;
+    --soft: #b4bbc7;
+    --btn-bg: #faf7f2;
+    --btn-fg: #1a2535;
+    --code-bg: #0c131d;
+    --code-fg: #eef0f3;
+    --focus: #c3a874;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #111925;
+  --surface: #1a2535;
+  --well: #152031;
+  --ink: #eef0f3;
+  --heading: #f3eee4;
+  --camel: #c3a874;
+  --line: #2a374b;
+  --line-strong: #3b4b63;
+  --soft: #b4bbc7;
+  --btn-bg: #faf7f2;
+  --btn-fg: #1a2535;
+  --code-bg: #0c131d;
+  --code-fg: #eef0f3;
+  --focus: #c3a874;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-well: var(--well);
+  --color-ink: var(--ink);
+  --color-heading: var(--heading);
+  --color-camel: var(--camel);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-soft: var(--soft);
+  --color-btn: var(--btn-bg);
+  --color-btn-fg: var(--btn-fg);
+  --color-code: var(--code-bg);
+  --color-code-fg: var(--code-fg);
+  --font-display: var(--twc-font-display);
+  --font-sans: var(--twc-font-body);
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* `dark:` follows the OS unless the page sets data-theme. */
+@custom-variant dark {
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme="light"]) *) {
+      @slot;
+    }
+  }
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+}
+
+html, body { background: var(--page); color: var(--ink); }
+body { font-family: var(--twc-font-body); font-size: 16px; line-height: 1.6; margin: 0; }
+h1, h2, h3 { font-family: var(--twc-font-display); color: var(--heading); text-wrap: balance; }
+a { color: var(--camel); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+input[type="range"] { accent-color: var(--heading); width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Fixed-palette gauge themes get the surface they were designed for. */
+[data-gauge-theme="midnight"] .well { background: #0b1220; }
+[data-gauge-theme="brass"] .well { background: #efe4cc; }
